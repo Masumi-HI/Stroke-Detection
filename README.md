@@ -84,7 +84,9 @@ After tuning to **threshold = 0.75**, the model showed:
 
 ## ✅ Conclusion
 
-Logistic Regression with SMOTE and threshold tuning to 0.75 provides a strong balance for stroke detection. Prioritizing recall ensures fewer missed high-risk patients, which is critical in healthcare. The AUC of 0.83 demonstrates strong discriminatory ability, and the threshold choice improves precision without losing too much recall.
+- Logistic Regression with SMOTE and threshold tuning to 0.75 provides a strong balance for stroke detection. 
+- Prioritizing recall ensures fewer missed high-risk patients, which is critical in healthcare. 
+- The AUC of 0.83 demonstrates strong discriminatory ability, and the threshold choice improves precision without losing too much recall.
 
 ---
 
