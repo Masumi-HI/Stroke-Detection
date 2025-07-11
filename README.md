@@ -56,53 +56,35 @@ Initially, all models performed well on accuracy due to imbalance, but performed
 
 ## 🎯 Threshold Tuning
 
-At the default **threshold = 0.5**, the Logistic Regression model had:
+At the default threshold = 0.5, the Logistic Regression model had:  
+- **Precision (stroke=1):** ~0.14  
+- **Recall (stroke=1):** ~0.74  
+- **F1 Score:** ~0.23  
+- **Accuracy:** ~0.76  
 
-| Metric     | Value     |
-|------------|-----------|
-| Precision (stroke=1) | ~0.14 |
-| Recall (stroke=1)    | ~0.74 |
-| F1 Score             | ~0.23 |
-| Accuracy             | ~0.76 |
+🔍 **Insight:** Very high recall but very low precision → too many false positives.
 
-🔍 **Insight**: Very high recall but very low precision → too many false positives.
+After tuning to **threshold = 0.75**, the model showed:
 
-After tuning to **threshold = 0.8**, the model showed:
+| Metric              | Value  |
+|---------------------|--------|
+| Precision (stroke=1) | 0.22   |
+| Recall (stroke=1)    | 0.58   |
+| F1 Score            | 0.32   |
+| Accuracy            | 0.88   |
+| ROC AUC             | ~0.83  |
 
-| Metric     | Value     |
-|------------|-----------|
-| Precision (stroke=1) | 0.23 |
-| Recall (stroke=1)    | 0.44 |
-| F1 Score             | 0.30 |
-| Accuracy             | 0.90 |
-| ROC AUC              | ~0.83 |
-
-✅ **Better balance** — improved precision while still maintaining moderate recall.
-
----
+✅ **Better balance** — improved precision while still maintaining moderate recall, leading to higher accuracy overall.
 
 ## 📈 Graph Interpretations
 
-### 🔷 Confusion Matrix
-- Shows how many true stroke cases were correctly identified (TP), and how many were missed (FN).
-- At threshold = 0.8, more positive cases are missed, but precision is higher.
-
-### 🟠 ROC Curve
-- Plots True Positive Rate vs False Positive Rate for all thresholds.
-- **AUC ~0.83** → the model is good at ranking positive vs negative cases.
-
-### 🟢 Precision-Recall Curve
-- Visualizes the tradeoff between precision and recall.
-- Useful when dealing with imbalanced datasets.
-- Helps identify the **ideal threshold** that gives the best F1-score.
-
----
+- 🔷 **Confusion Matrix:** Shows how many true stroke cases were correctly identified (TP), and how many were missed (FN). At threshold = 0.75, some positive cases are missed, but precision improves compared to threshold 0.5, reducing false positives.  
+- 🟠 **ROC Curve:** Plots True Positive Rate vs False Positive Rate for all thresholds. AUC ~0.83 → the model is good at ranking positive vs negative cases.  
+- 🟢 **Precision-Recall Curve:** Visualizes the tradeoff between precision and recall. Useful when dealing with imbalanced datasets. Helps identify the ideal threshold that gives the best F1-score.
 
 ## ✅ Conclusion
 
-- Logistic Regression with SMOTE and threshold tuning provides a strong balance for stroke detection.
-- Prioritizing recall ensures fewer missed high-risk patients, which is essential in healthcare.
-- AUC of 0.83 shows strong discriminatory ability.
+Logistic Regression with SMOTE and threshold tuning to 0.75 provides a strong balance for stroke detection. Prioritizing recall ensures fewer missed high-risk patients, which is critical in healthcare. The AUC of 0.83 demonstrates strong discriminatory ability, and the threshold choice improves precision without losing too much recall.
 
 ---
 
