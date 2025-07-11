@@ -115,5 +115,3 @@ After tuning to **threshold = 0.8**, the model showed:
 5. **Explainability Tools** — Add SHAP or LIME to help clinicians trust and interpret predictions.
 
 ---
-
-> Created with ❤️ using Python, pandas, scikit-learn, imbalanced-learn, and matplotlib.
